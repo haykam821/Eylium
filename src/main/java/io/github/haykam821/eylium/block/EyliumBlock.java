@@ -24,7 +24,7 @@ public class EyliumBlock extends NyliumBlock {
 	}
 
 	private boolean stayAliveInEnd(BlockState state, ServerWorld world, BlockPos pos) {
-		return world.getLightLevel(pos.up()) > 3;
+		return world.getLightLevel(pos.up()) > 3 || world.getRegistryKey() == World.END;
 	}
 
 	public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
