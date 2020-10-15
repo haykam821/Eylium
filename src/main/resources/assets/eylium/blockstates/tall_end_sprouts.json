@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"half=lower": {
+			"model": "eylium:block/tall_end_sprouts_bottom"
+		},
+		"half=upper": {
+			"model": "eylium:block/tall_end_sprouts_top"
+		}
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "block/cross",
+	"textures": {
+		"cross": "eylium:block/tall_end_sprouts_top"
+	}
+}

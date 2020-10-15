@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "eylium:block/tall_end_sprouts_top"
+	}
+}
