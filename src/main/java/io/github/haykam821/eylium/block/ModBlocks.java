@@ -20,17 +20,14 @@ public enum ModBlocks {
 	TALL_END_SPROUTS("tall_end_sprouts", new TallEyliumSproutsBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).materialColor(MaterialColor.CYAN)), block -> new TallBlockItem(block, new Item.Settings().group(ItemGroup.DECORATIONS))),
 	EYLIUM("eylium", new EyliumBlock(FabricBlockSettings.copyOf(Blocks.CRIMSON_NYLIUM).sounds(BlockSoundGroup.STONE).materialColor(MaterialColor.CYAN)), ItemGroup.BUILDING_BLOCKS);
 
+	private final Identifier id;
 	private final Block block;
 	private final BlockItem item;
 
 	private ModBlocks(String path, Block block, BlockItem item) {
-		Identifier id = new Identifier(Main.MOD_ID, path);
-
+		this.id = new Identifier(Main.MOD_ID, path);
 		this.block = block;
-		Registry.register(Registry.BLOCK, id, this.block);
-
 		this.item = item;
-		Registry.register(Registry.ITEM, id, this.item);
 	}
 
 	private ModBlocks(String path, Block block, Function<Block, BlockItem> itemFunction) {
@@ -50,6 +47,9 @@ public enum ModBlocks {
 	}
 
 	public static void register() {
-		return;
+		for (ModBlocks modBlock : ModBlocks.values()) {
+			Registry.register(Registry.BLOCK, modBlock.id, modBlock.block);
+			Registry.register(Registry.ITEM, modBlock.id, modBlock.item);
+		}
 	}
 }
