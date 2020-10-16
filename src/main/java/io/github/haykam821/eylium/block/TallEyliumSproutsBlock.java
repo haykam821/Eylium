@@ -24,7 +24,7 @@ public class TallEyliumSproutsBlock extends TallPlantBlock {
 
 	@Override
 	public boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-		return floor.isOf(ModBlocks.EYLIUM.getBlock());
+		return floor.isOf(ModBlocks.EYLIUM.getBlock()) || floor.isOf(Blocks.END_STONE);
 	}
 
 	@Override
