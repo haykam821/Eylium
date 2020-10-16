@@ -3,6 +3,7 @@ package io.github.haykam821.eylium;
 import io.github.haykam821.eylium.block.ModBlocks;
 import io.github.haykam821.eylium.world.EyliumPatchFeature;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -27,6 +28,8 @@ public class Main implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModBlocks.register();
+		CompostingChanceRegistry.INSTANCE.add(ModBlocks.END_SPROUTS.getItem(), 0.3f);
+		CompostingChanceRegistry.INSTANCE.add(ModBlocks.TALL_END_SPROUTS.getItem(), 0.5f);
 
 		// Features
 		Registry.register(Registry.FEATURE, EYLIUM_PATCH_ID, EYLIUM_PATCH);
