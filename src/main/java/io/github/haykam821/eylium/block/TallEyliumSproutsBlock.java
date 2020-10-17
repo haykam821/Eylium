@@ -1,5 +1,6 @@
 package io.github.haykam821.eylium.block;
 
+import io.github.haykam821.eylium.Main;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -24,7 +25,7 @@ public class TallEyliumSproutsBlock extends TallPlantBlock {
 
 	@Override
 	public boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-		return floor.isOf(ModBlocks.EYLIUM.getBlock()) || floor.isOf(Blocks.END_STONE);
+		return floor.isIn(Main.END_SPROUTS_PLANTABLE_ON);
 	}
 
 	@Override

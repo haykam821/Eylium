@@ -4,6 +4,9 @@ import io.github.haykam821.eylium.block.ModBlocks;
 import io.github.haykam821.eylium.world.EyliumPatchFeature;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.tag.TagRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -14,6 +17,9 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 
 public class Main implements ModInitializer {
 	public static final String MOD_ID = "eylium";
+
+	private static final Identifier END_SPROUTS_PLANTABLE_ON_ID = new Identifier(MOD_ID, "end_sprouts_plantable_on");
+	public static final Tag<Block> END_SPROUTS_PLANTABLE_ON = TagRegistry.block(END_SPROUTS_PLANTABLE_ON_ID);
 
 	// Features
 	private static final Identifier EYLIUM_PATCH_ID = new Identifier(MOD_ID, "eylium_patch");
