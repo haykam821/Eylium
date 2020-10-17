@@ -7,10 +7,12 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.TallPlantBlock;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import virtuoel.pehkui.api.ScaleData;
 import virtuoel.pehkui.api.ScaleType;
@@ -21,6 +23,16 @@ public class TallEndSproutsBlock extends TallPlantBlock {
 
 	public TallEndSproutsBlock(Block.Settings settings) {
 		super(settings);
+	}
+
+	private void shorten(World world, BlockPos pos) {
+		world.setBlockState(pos.up(), AIR_STATE);
+		world.setBlockState(pos, RESULT_STATE);
+		world.playSound(null, pos, SoundEvents.BLOCK_GRASS_BREAK, SoundCategory.BLOCKS, 1, 1);
+	}
+
+	private boolean canCauseShortening(World world, Entity entity) {
+		return entity instanceof PlayerEntity || world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING);
 	}
 
 	@Override
@@ -40,10 +52,8 @@ public class TallEndSproutsBlock extends TallPlantBlock {
 				scaleData.markForSync();
 
 				// Break block when matching its height
-				if (scaleData.getScale() <= 0.51 && state.get(TallPlantBlock.HALF) == DoubleBlockHalf.LOWER) {
-					world.setBlockState(pos.up(), AIR_STATE);
-					world.setBlockState(pos, RESULT_STATE);
-					world.playSound(null, pos, SoundEvents.BLOCK_GRASS_BREAK, SoundCategory.BLOCKS, 1, 1);
+				if (scaleData.getScale() <= 0.51 && this.canCauseShortening(world, entity) && state.get(TallPlantBlock.HALF) == DoubleBlockHalf.LOWER) {
+					this.shorten(world, pos);
 				}
 			}
 		}
