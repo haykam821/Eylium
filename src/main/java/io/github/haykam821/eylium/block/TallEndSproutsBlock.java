@@ -15,11 +15,11 @@ import net.minecraft.world.World;
 import virtuoel.pehkui.api.ScaleData;
 import virtuoel.pehkui.api.ScaleType;
 
-public class TallEyliumSproutsBlock extends TallPlantBlock {
+public class TallEndSproutsBlock extends TallPlantBlock {
 	private static final BlockState AIR_STATE = Blocks.AIR.getDefaultState();
 	private static final BlockState RESULT_STATE = ModBlocks.END_SPROUTS.getBlock().getDefaultState();
 
-	public TallEyliumSproutsBlock(Block.Settings settings) {
+	public TallEndSproutsBlock(Block.Settings settings) {
 		super(settings);
 	}
 

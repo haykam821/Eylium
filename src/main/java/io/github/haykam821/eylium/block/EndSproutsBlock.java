@@ -11,8 +11,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 
-public class EyliumSproutsBlock extends FernBlock {
-	public EyliumSproutsBlock(Block.Settings settings) {
+public class EndSproutsBlock extends FernBlock {
+	public EndSproutsBlock(Block.Settings settings) {
 		super(settings);
 	}
 

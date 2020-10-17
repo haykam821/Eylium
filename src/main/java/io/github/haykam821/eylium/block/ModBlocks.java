@@ -16,8 +16,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public enum ModBlocks {
-	END_SPROUTS("end_sprouts", new EyliumSproutsBlock(FabricBlockSettings.copyOf(Blocks.NETHER_SPROUTS).materialColor(MaterialColor.CYAN)), ItemGroup.DECORATIONS),
-	TALL_END_SPROUTS("tall_end_sprouts", new TallEyliumSproutsBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).materialColor(MaterialColor.CYAN)), block -> new TallBlockItem(block, new Item.Settings().group(ItemGroup.DECORATIONS))),
+	END_SPROUTS("end_sprouts", new EndSproutsBlock(FabricBlockSettings.copyOf(Blocks.NETHER_SPROUTS).materialColor(MaterialColor.CYAN)), ItemGroup.DECORATIONS),
+	TALL_END_SPROUTS("tall_end_sprouts", new TallEndSproutsBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).materialColor(MaterialColor.CYAN)), block -> new TallBlockItem(block, new Item.Settings().group(ItemGroup.DECORATIONS))),
 	EYLIUM("eylium", new EyliumBlock(FabricBlockSettings.copyOf(Blocks.CRIMSON_NYLIUM).sounds(BlockSoundGroup.STONE).materialColor(MaterialColor.CYAN)), ItemGroup.BUILDING_BLOCKS);
 
 	private final Identifier id;
